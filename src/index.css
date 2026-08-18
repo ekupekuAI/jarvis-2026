@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-space-950 text-slate-200 font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(22, 199, 245, 0.08), transparent),
+      radial-gradient(ellipse 60% 50% at 100% 100%, rgba(91, 141, 255, 0.05), transparent);
+    background-attachment: fixed;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(22, 199, 245, 0.25) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(22, 199, 245, 0.25);
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(22, 199, 245, 0.45);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.06];
+  }
+  .glass-strong {
+    @apply bg-white/[0.05] backdrop-blur-2xl border border-white/[0.08];
+  }
+  .glass-panel {
+    @apply bg-space-900/40 backdrop-blur-xl border border-white/[0.06];
+  }
+  .accent-text {
+    @apply text-accent-300;
+  }
+  .accent-border {
+    @apply border-accent-400/30;
+  }
+  .glow-ring {
+    box-shadow: 0 0 0 1px rgba(22, 199, 245, 0.2), 0 0 24px rgba(22, 199, 245, 0.15);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(22, 199, 245, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(22, 199, 245, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+}
